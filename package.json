@@ -1,0 +1,21 @@
+{
+  "name": "zkkit",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "zkkit" : "./bin/zkkit.js"
+  },
+  "scripts": {
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2",
+    "fs-extra": "^11.3.2"
+  }
+}
