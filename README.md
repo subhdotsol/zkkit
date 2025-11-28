@@ -146,6 +146,12 @@ zkkit proof
 zkkit verify
 ```
 
+**CLI Commands in Action:**
+
+![zkkit CLI Commands](./command-1.png)
+
+![zkkit CLI Commands Continued](./command-2.png)
+
 ### Using Programmatically
 
 ```javascript
@@ -192,6 +198,12 @@ async function main() {
 
 main().catch(console.error);
 ```
+
+**Successful Workflow Execution:**
+
+![Complete ZK Workflow Output](./conf-running-suite.png)
+
+The above screenshot shows a complete successful run of the entire zero-knowledge proof workflow, from circuit compilation through proof verification.
 
 ## API Reference
 
