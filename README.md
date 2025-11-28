@@ -17,7 +17,89 @@ zkkit abstracts the complexity of zero-knowledge proof development by providing 
 
 ## Installation
 
+### Prerequisites (Required)
+
+Before installing zkkit, you **must** have the following installed on your system:
+
+#### 1. **Node.js** (v14 or higher)
+Required for running zkkit and npm packages.
+
+**macOS:**
+```bash
+brew install node
+```
+
+**Ubuntu/Debian:**
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+**Verify installation:**
+```bash
+node --version
+npm --version
+```
+
+---
+
+#### 2. **Rust** (Latest stable)
+Required for circom compilation and cryptographic operations.
+
+**macOS & Linux:**
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+```
+
+**Verify installation:**
+```bash
+rustc --version
+cargo --version
+```
+
+---
+
+#### 3. **Circom** (v2.0 or higher)
+The circuit compiler for zero-knowledge proofs.
+
+**macOS:**
+```bash
+brew install circom
+```
+
+**Linux (from source):**
+```bash
+git clone https://github.com/iden3/circom.git
+cd circom
+cargo build --release
+sudo cp target/release/circom /usr/local/bin/
+```
+
+**Verify installation:**
+```bash
+circom --version
+```
+
+---
+
+#### 4. **snarkjs** (Global installation recommended)
+The SNARK toolkit for proof generation and verification.
+
+```bash
+npm install -g snarkjs
+```
+
+**Verify installation:**
+```bash
+snarkjs --version
+```
+
+---
+
 ### Via npm
+
+Once all prerequisites are installed:
 
 ```bash
 npm install zkkit
@@ -28,6 +110,7 @@ npm install zkkit
 ```bash
 git clone <repository-url>
 cd zkkit
+npm install
 npm link
 ```
 
@@ -306,48 +389,20 @@ Anyone can verify the proof using only public inputs and the verification key.
 
 ## Requirements
 
-- **Node.js** >= 14
-- **circom** - Circuit compiler
-- **snarkjs** - SNARK toolkit
-- **FFmpeg** (optional) - For multimedia processing
+⚠️ **IMPORTANT:** All of these must be installed and working before using zkkit:
 
-Install system dependencies:
+- **Node.js** >= 14.0.0
+- **Rust** - Latest stable version
+- **circom** >= 2.0 - Circuit compiler
+- **snarkjs** >= 0.4.0 - SNARK toolkit
 
-```bash
-# macOS
-brew install circom
+**See [Installation Prerequisites](#prerequisites-required) section above for detailed installation instructions for each dependency.**
 
-# Ubuntu/Debian
-apt-get install circom
-```
+If any of these are missing, zkkit will not work. Please complete the prerequisite installation before proceeding.
 
 ## Environment Setup
 
-### macOS
-
-```bash
-# Install Homebrew if not installed
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install circom
-brew install circom
-
-# Verify installation
-circom --version
-```
-
-### Linux
-
-```bash
-# Install build tools
-apt-get update
-apt-get install build-essential git
-
-# Install circom from source or use pre-built binaries
-wget https://github.com/iden3/circom/releases/download/v2.1.0/circom-linux-x64
-chmod +x circom-linux-x64
-sudo mv circom-linux-x64 /usr/local/bin/circom
-```
+See the [Prerequisites (Required)](#prerequisites-required) section above for complete setup instructions for macOS and Linux.
 
 ## Tips & Best Practices
 

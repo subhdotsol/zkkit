@@ -1,0 +1,9 @@
+node_modules/
+zkkit-test/
+.git
+.gitignore
+.DS_Store
+*.png
+*.jpg
+command.png
+command-1.png

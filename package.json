@@ -1,18 +1,40 @@
 {
   "name": "zkkit",
   "version": "0.0.1",
-  "description": "",
+  "description": "A comprehensive toolkit for building zero-knowledge proofs using Groth16 and snarkjs",
   "main": "src/index.js",
   "type": "module",
   "bin": {
-    "zkkit" : "./bin/zkkit.js"
+    "zkkit": "./bin/zkkit.js"
   },
   "scripts": {
-
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subhdotsol/zkkit.git"
+  },
+  "keywords": [
+    "zk-snark",
+    "zero-knowledge",
+    "cryptography",
+    "groth16",
+    "circom",
+    "snarkjs",
+    "proving-system",
+    "privacy"
+  ],
+  "author": "Subh<subhajitchaudhury05@gmail.com>",
   "license": "ISC",
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "package.json"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "chalk": "^5.6.2",
     "commander": "^14.0.2",
