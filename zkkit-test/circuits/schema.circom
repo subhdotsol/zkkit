@@ -1,3 +1,4 @@
+
 // your circuit here
 
 pragma circom 2.0.0;
@@ -18,3 +19,4 @@ template SumProduct(){
 }
 
 component main = SumProduct();
+    
