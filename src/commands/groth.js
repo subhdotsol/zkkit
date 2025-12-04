@@ -1,8 +1,10 @@
 import { run } from "../utils/exec.js";
 
-export default async function groth() {
+export default async function groth(opts) {
+  const { verification } = opts;
+
   await run("snarkjs groth16 setup outputs/schema.r1cs pot12_final.ptau circuit_0000.zkey");
-  await run("snarkjs zkey export verificationkey circuit_0000.zkey verification_key.json");
+  await run(`snarkjs zkey export verificationkey circuit_0000.zkey ${verification}.json`);
 
   console.log("✔ Groth16 setup completed");
 }

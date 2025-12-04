@@ -24,7 +24,7 @@ program
 program
   .command("compile")
   .option("-c, --circuit <path>", "Circuit file path", "circuits/schema.circom")
-  .option("-o, --out <path>", "Output folder", "outputs")
+  // .option("-o, --out <path>", "Output folder", "outputs")
   .action(compile);
 
 program
@@ -35,10 +35,18 @@ program
 
 program.command("setup:trusted").action(trustedSetup);
 
-program.command("setup:groth").action(groth);
+program.command("setup:groth").option("-v, --verification <string>", "Verification key file name", "verification_key.json").action(groth);
 
-program.command("proof").action(proof);
+program.command("proof")
+.option("-w, --witness <string>", "Witness file name", "witness.wtns")
+.option("-p, --proof <string>", "Proof file name", "proof.json")
+.option("-o, --output <string>", "Output file name", "public.json")
+.action(proof);
 
-program.command("verify").action(verify);
+program.command("verify")
+.option("-v, --verification <string>", "Verification key file name", "verification_key.json")
+.option("-p, --proof <string>", "Proof file name", "proof.json")
+.option("-o, --output <string>", "Output file name", "public.json")
+.action(verify);
 
 program.parse(process.argv);
