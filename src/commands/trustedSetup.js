@@ -1,10 +1,8 @@
 import { run } from "../utils/exec.js";
 
-export default async function trustedSetup(entropy) {
-  if (!entropy) {
-    throw new Error("❌ trustedSetup(entropy) requires an entropy string.");
-  }
-
+export default async function trustedSetup(
+  entropy = "default-random-entropy-" + Date.now()
+) {
   console.log("running trusted setup");
 
   await run("snarkjs powersoftau new bn128 12 pot12_0000.ptau");
@@ -14,7 +12,9 @@ export default async function trustedSetup(entropy) {
     entropy + "\n" // <- SENT TO STDIN
   );
 
-  await run("snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau");
+  await run(
+    "snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau"
+  );
   await run("snarkjs powersoftau verify pot12_final.ptau");
 
   console.log("✔ Trusted setup completed");
